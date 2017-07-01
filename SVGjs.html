@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.2/svg.min.js"></script>
+
+  <title>SVG.js</title>
+</head>
+
+<body>
+  <div id="drawing"></div>
+
+  <script>
+    var draw = SVG('drawing').size(300, 300);
+    var rect = draw.rect(200, 200).attr({
+      fill: '#2e509d'
+    });
+    // Note: SVG.js is a small framework with no dependencies for making it easy to interact with SVG. Worth it.
+
+    var draw = SVG('drawing').size(500, 500);
+
+    var arr = randomSeries(20, 1, 78);
+
+    var polyline = draw.polyline(arr)
+    polyline.fill('none').move(20, 20)
+    polyline.stroke({
+      color: 'red',
+      width: 1,
+      linecap: 'round',
+      linejoin: 'round'
+    });
+
+
+    // TODO: Use code from my Lua graphing function to turn x1,x2... and y1,y2... arrays into polyline arrays of x1,y1,x2,y2....
+
+
+    // Make array of random numbers within given range, of given length
+    function randomSeries(length, min, max) {
+      var series = [];
+      for (i = 0; i < length; i++) series[i] = Math.random() * (max - min) + min;
+      return series;
+    }
+    console.log(randomSeries(20, 2, 30));
+
+  </script>
+</body>
+
+</html>

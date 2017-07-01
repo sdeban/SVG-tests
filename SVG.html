@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<svg id="svg">
+  <polyline id="polyline-id" points="0, 240 40, 25 60, 40 80, 120 120, 140" style="fill:none;stroke:#000;stroke-width:1" />
+</svg>
+
+
+<script>
+  var arr = [0, 20, 20, 60, 40, 10, 20, 20];
+
+
+  var svg = document.getElementById('svg');
+  var point = svg.createSVGPoint();
+  point.x = 10;
+  point.y = 20;
+  var polyline = document.getElementById('polyline-id');
+  polyline.points.appendItem(point);
+
+
+
+
+  // Make array of random numbers within given range, of given length
+  function randomSeries(length, min, max) {
+    var series = [];
+    for (i = 0; i < length; i++) series[i] = Math.random() * (max - min) + min;
+    return series;
+  }
+  console.log(randomSeries(20, 2, 30));
+
+
+
+  function sequence(start, end, step) {
+    var seq = [];
+    for (i = 0; i < 1 + Math.floor((end - start) / step); i++) seq[i] = i * step + start;
+    return seq;
+  }
+
+</script>
